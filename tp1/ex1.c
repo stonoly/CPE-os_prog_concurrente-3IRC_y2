@@ -4,7 +4,7 @@
 * Exercice 1
 */
 
-#include <stdio.h>
+#include "ex1.h"
 
 
 int smallestDivisor (int num_to_divide){
