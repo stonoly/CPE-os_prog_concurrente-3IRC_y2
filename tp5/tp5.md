@@ -13,3 +13,8 @@ Files :
 Files : 
 - `successif.h`
 - `successif.c`
+
+## Exercice 2: Génération de miniature à partir d’un dossier
+Files :
+- `miniature.c`
+- `miniature.h`
