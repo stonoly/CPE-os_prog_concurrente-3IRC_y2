@@ -8,3 +8,8 @@
 Files : 
 - `simultane.h`
 - `simultane.c`
+
+### Variant 2:
+Files : 
+- `successif.h`
+- `successif.c`
