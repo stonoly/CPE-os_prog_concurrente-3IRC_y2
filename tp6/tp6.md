@@ -12,9 +12,17 @@ Files :
 
 ## Exercice 2: Tubes et Redirection
 > Lors des TP d’administration système vous avez déjà utilisé les pipes et redirection. Dans cet exercice, vous allez à l’aide de pipe et de redirection l’équivalent d’une série de commandes. Le but n’est pas de réécrire ces commandes mais d’utiliser celle existante dans vos programmes.
+
 ### Variant 1: Redirection Simple
 > Écrivez un programme dont le code correspond à la commande suivante: `wc < /etc/passwd`
 
 Files:
 - `simple_redirection.h`
 - `simple_redirection.c`
+
+### Variant 2: Pipe Simple
+> Écrivez un programme dont le code correspond à la commande suivante: `cut -f 1 -d : /etc/passwd | tr a-z A-Z`
+
+Files:
+- `pipe_simple.h`
+- `pipe_simple.c`
