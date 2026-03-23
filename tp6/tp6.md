@@ -26,3 +26,10 @@ Files:
 Files:
 - `pipe_simple.h`
 - `pipe_simple.c`
+
+### Variant 3: Pipeline Complet
+> Écrivez un programme dont le code correspond à la commande suivante: `cut -f 1,3 -d : < /etc/passwd | sed 's+^\(.*\):\(.*\)+\2:\1+' | sort -n > users` ⚠ cut n’a pas connaissance ici qu’il manipule le fichier /etc/passwd contrairement au cas précédent. Il en va de même pour sort qui ne sait pas qu’il écrit dans un fichier nommé users.
+
+Files:
+- `complete_pipeline.h`
+- `complete_pipeline.c`
