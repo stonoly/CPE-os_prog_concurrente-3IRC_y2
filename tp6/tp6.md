@@ -38,5 +38,5 @@ Files:
 > Écrivez un programme (somme) composé de 4 processus réalisant les traitements suivants (voir Schéma) Un premier processus (générateur), génère N nombres aléatoires positifs ou nuls. Il dépose chacun de ses nombres dans un tube. Une fois la génération terminée, il envoie -1 dans le tube. Il se met alors en attente des sommes issus des processus pair et impair. Un second processus (filtre) récupère les différents nombre depuis le tube et en s’ils sont pairs ou impairs les déposes respectivement dans un tube ou un autre. Il dépose -1 dans chacun des tubes. Un troisième processus (pair) récupère les nombres pairs reçus depuis le tube et les somme. Une fois le dernier nombre reçu, il envoie la somme totale au processus générateur. Un quatrième processus (impair) récupère les nombres impairs reçus depuis le tube et les somme. Une fois le dernier nombre reçu, il envoie la somme totale au processus générateur.
 
 Files:
-- `filters.h`
-- `filters.c`
+- `sum.h`
+- `sum.c`

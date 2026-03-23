@@ -1,7 +1,7 @@
 CFLAGS=-Wall -Wextra -g
 
 
-all: guess simple_redirection pipe_simple complete_pipeline filters
+all: guess simple_redirection pipe_simple complete_pipeline sum
 
 guess: guess.o
 guess.o: guess.h guess.c
@@ -15,8 +15,8 @@ pipe_simple.o: pipe_simple.h pipe_simple.c
 complete_pipeline: complete_pipeline.o
 complete_pipeline.o: complete_pipeline.h complete_pipeline.c
 
-filters: filters.o
-filters.o: filters.h filters.c
+sum: sum.o
+sum.o: sum.h sum.c
 
 clean: 
-	rm -rf *.o guess simple_redirection pipe_simple complete_pipeline filters
+	rm -rf *.o guess simple_redirection pipe_simple complete_pipeline sum

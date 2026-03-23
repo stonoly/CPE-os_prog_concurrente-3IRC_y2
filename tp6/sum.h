@@ -1,10 +1,10 @@
-/* Fichier: filters.c
+/* Fichier: sum.c
 * TP 6: Tubes Anonymes
 * auteur: Pierre MOLY
 * Exercice 3
 */
 
-#ifndef FILTERS_H
-#define FILTERS_H
+#ifndef SUM_H
+#define SUM_H
 
 #endif
