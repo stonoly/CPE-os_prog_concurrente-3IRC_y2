@@ -9,7 +9,7 @@
 
 int main()
 {
-    sem_create(1, 1);
+    sem_create(1, 0);
 
     return 0;
 }

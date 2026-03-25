@@ -1,12 +1,12 @@
 CFLAGS=-Wall -Wextra -g
 
 
-all: first second
+all: first second init clean
 
-first: first.o djikstra.o
+first: first.o dijkstra.o
 first.o: first.h first.c
 
-second: second.o djikstra.o init.o clean.o
+second: second.o dijkstra.o
 second.o: second.h second.c
 
 init:init.o dijkstra.o
@@ -15,7 +15,7 @@ init.o:init.c init.h dijkstra.h
 clean:clean.o dijkstra.o
 clean.o:clean.c clean.h dijkstra.h
 
-djikstra.o: djikstra.h djikstra.c
+dijkstra.o: dijkstra.h dijkstra.c
 
-clean: 
+clean-make: 
 	rm -rf *.o first second

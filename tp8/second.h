@@ -7,6 +7,6 @@
 #ifndef SECOND_H
 #define SECOND_H
 
-#include "djikstra.h"
+#include "dijkstra.h"
 
 #endif
