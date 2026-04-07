@@ -7,4 +7,6 @@
 #ifndef INTERCEPT_H
 #define INTERCEPT_H
 
+void handler(int sig);
+
 #endif
