@@ -19,5 +19,7 @@ int main()
     }
     int semWaitFirst = sem_get(1);
     sem_delete(semWaitFirst);
+    int semWaitSecond = sem_get(2);
+    sem_delete(semWaitSecond);
     return 0;
 }

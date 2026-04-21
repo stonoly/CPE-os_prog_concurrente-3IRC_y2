@@ -24,6 +24,7 @@ int main(int argc, char* argv[]){
 
     int shmid = shmget(1234, sizeof(int), 0);
     int sem_1 = sem_get(1);
+    int sem_2 = sem_get(2);
 
     int nb_rand = rand() % 20 + 3;
     printf("Salut je suis un porcessus qui attends %d secondes\n", nb_rand);
@@ -31,17 +32,20 @@ int main(int argc, char* argv[]){
 
     int* mem = shmat(shmid,NULL,0);
 
+    P(sem_2);
     *mem += 1;
     printf(" On est %d arrivé \n", *mem);
 
     if(*mem == nbr_pro){
         //Liberation
+        V(sem_2);
         for(int i = 0; i < nbr_pro - 1; i++){
             V(sem_1);
             puts("je libère");
         }
     } else {
         //Attente
+        V(sem_2);
         puts("On va attendre");
         P(sem_1);
     }  

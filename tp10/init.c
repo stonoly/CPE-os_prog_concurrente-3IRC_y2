@@ -12,6 +12,7 @@
 int main()
 {
     sem_create(1, 0);
+    sem_create(2, 1);
     int shmid = shmget(1234, sizeof(int),IPC_CREAT|IPC_EXCL|0600);
     if (shmid == -1) {
         perror("Shmget Memory");
