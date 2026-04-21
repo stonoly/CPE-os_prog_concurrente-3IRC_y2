@@ -6,8 +6,6 @@
 
 #include "init.h"
 
-#include <sys/shm.h>
-
 
 int main()
 {

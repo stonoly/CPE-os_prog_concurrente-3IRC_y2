@@ -6,8 +6,6 @@
 
 #include "clean.h"
 
-#include <sys/shm.h>
-
 
 int main()
 {
