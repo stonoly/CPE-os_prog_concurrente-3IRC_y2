@@ -3,8 +3,8 @@ CFLAGS=-Wall -Wextra -g
 
 all: rdv_n init clean
 
-rdv_n: rdv_n.o
-rdv_n.o: rdv_n.c rdv_n.h
+rdv_n: rdv_n.o dijkstra.o
+rdv_n.o: rdv_n.c rdv_n.h dijkstra.h
 
 init:init.o dijkstra.o
 init.o:init.c init.h dijkstra.h

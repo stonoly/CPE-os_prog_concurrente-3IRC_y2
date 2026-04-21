@@ -6,11 +6,18 @@
 
 #include "clean.h"
 
+#include <sys/shm.h>
+
 
 int main()
 {
+
+    int shmid = shmget(1234,sizeof(int),0);
+    int res = shmctl(shmid,IPC_RMID,NULL);
+    if (res == -1) {
+        perror("Delete Shm");
+    }
     int semWaitFirst = sem_get(1);
     sem_delete(semWaitFirst);
-
     return 0;
 }

@@ -7,4 +7,6 @@
 #ifndef RDV_N_H
 #define RDV_N_H
 
+#include "dijkstra.h"
+
 #endif
