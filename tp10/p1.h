@@ -8,5 +8,6 @@
 #define P1_H
 
 #include "dijkstra.h"
+#include "max.h"
 
 #endif

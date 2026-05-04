@@ -8,5 +8,6 @@
 #define P2_H
 
 #include "dijkstra.h"
+#include "min.h"
 
 #endif
