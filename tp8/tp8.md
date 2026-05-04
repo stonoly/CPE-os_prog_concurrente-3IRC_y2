@@ -1,4 +1,4 @@
-# TP6
+# TP8
 *Global:*
 
 - `Makefile`
@@ -17,3 +17,9 @@ Files:
 - `first.h`
 - `second.c`
 - `second.h`
+
+## Exercice 2: Rendez-vous
+> Plusieurs processus souhaitent établir un rendez-vous. Chaque processus exécutent certain traitement mais ne peuvent continuer leur exécution que si l’ensemble des processus sont arrivés à la fin de leur traitement respectif. Une fois, cela fait, chacun reprend son exécution indépendamment des autres. L’ordre d’exécution de chaque process, le moment d’exécution des programmes ou le temps d’exécution de ceux-ci ne doit pas influencer le rendez-vous. Tant que tous les processus ne sont pas au rendez-vous, les autres doivent attendre.
+
+### Variante 1: Rendez-vous à deux
+> Écrivez deux programmes souhaitant établir un rendez-vous. Vous simulerez les traitements des différents programmes à l’aide de sleep et vous aiderez de puts/printf afin de suivre aisément les différentes étapes rencontrées par chacun des processus.
