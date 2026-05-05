@@ -4,18 +4,19 @@
 * Exercice 1
 */
 
-#ifndef KEY_CHANGE_H
-#define KEY_CHANGE_H
+#ifndef KEY_CALCULATOR_H
+#define KEY_CALCULATOR_H
 
-#define KEY_TAB_INT 6278
-#define KEY_MUTEX_CAN_USE_TAB 63829
+#define KEY_REQUEST_INPUT 5400
+#define SIZE_REQUEST 3
 
-#define KEY_MUTEX_P1 9302
+#define KEY_SEM_READ_SERVER 53278
 
-#define KEY_MUTEX_P2 5328
-
-#define KEY_SEM_P0 289302
-
-#define SIZE_TAB 3
+struct requete_client_serveur {
+    int clientId;
+    int nombre1;
+    int nombre2;
+    char operateur;
+};
 
 #endif

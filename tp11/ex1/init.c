@@ -10,5 +10,13 @@
 
 int main()
 {
+
+    sem_create(KEY_SEM_READ_SERVER, 0);
+
+    int shmid_input = shmget(KEY_REQUEST_INPUT, sizeof(struct requete_client_serveur), IPC_CREAT|IPC_EXCL|0600);
+    if (shmid_input == -1) {
+        perror("Shmget Memory Port Input");
+    }
+
     return 0;
 }
