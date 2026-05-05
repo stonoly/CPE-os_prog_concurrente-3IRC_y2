@@ -7,4 +7,10 @@
 #ifndef GREATER_H
 #define GREATER_H
 
+struct data_pipe{
+    int value;
+    int pid;
+    int ord;
+};
+
 #endif
