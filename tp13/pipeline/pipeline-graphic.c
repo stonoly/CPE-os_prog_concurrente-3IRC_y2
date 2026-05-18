@@ -46,12 +46,12 @@ static void *triangle_stage(void *a)
   {
     // Production des triangles dans le tableau des triangles :
     // remplacer les ...
-    sem_wait(...);
-      pthread_mutex_lock(...);
+    sem_wait(&triangle_sem_prod);
+      pthread_mutex_lock(&triangle_mutex);
         triangles[triangle_write_index] = triangle;
         triangle_write_index = (triangle_write_index + 1) % NB_TRIANGLES;
-      pthread_mutex_unlock(...);
-    sem_post(...);
+      pthread_mutex_unlock(&triangle_mutex);
+    sem_post(&triangle_sem_conso);
 
 #if  0// à remplacer par un 1 pour traiter les synchronisation.
     // Si le triangle est en réalité une demande de synchronisation
@@ -100,12 +100,12 @@ void *raster_stage(void *a)
     struct Fragment fragment;
 
     // Consomation des triangles
-    sem_wait(...);
-      pthread_mutex_lock(...);
-        triangle = ...;
-        triangle_read_index = ...;
-      pthread_mutex_unlock(...);
-    sem_post(...);
+    sem_wait(&triangle_sem_conso);
+      pthread_mutex_lock(&triangle_mutex);
+        triangle = triangles[triangle_read_index];
+        triangle_read_index = (triangle_read_index + 1) % NB_TRIANGLES;
+      pthread_mutex_unlock(&triangle_mutex);
+    sem_post(&triangle_sem_prod);
 
 #if 0 // à remplacer par un 1 pour gérer les synchronisations.
     if (triangle_is_sync(&triangle))
@@ -121,7 +121,12 @@ void *raster_stage(void *a)
       while (raster_get_next_fragment(raster, &fragment))
       {
         // production des fragments dans le tableau fragments
-        ...
+        sem_wait(&fragment_sem_prod);
+          pthread_mutex_lock(&fragment_mutex);
+            fragments[fragment_write_index] = fragment;
+            fragment_write_index = (fragment_write_index + 1) % NB_FRAGMENTS;
+          pthread_mutex_unlock(&fragment_mutex);
+        sem_post(&fragment_sem_conso);
       }
     }
   }
@@ -135,6 +140,13 @@ void *shader_stage(void *a)
   {
     struct Fragment fragment;
     // consomation des fragments.
+
+    sem_wait(&fragment_sem_conso);
+      pthread_mutex_lock(&fragment_mutex);
+        fragment = fragments[fragment_read_index];
+        fragment_read_index = (fragment_read_index + 1) % NB_FRAGMENTS;
+      pthread_mutex_unlock(&fragment_mutex);
+    sem_post(&fragment_sem_prod);
 
 #if 0 // à remplacer par un 1 pour gérer les synchronisations.
     if (fragment_is_sync(&fragment))
